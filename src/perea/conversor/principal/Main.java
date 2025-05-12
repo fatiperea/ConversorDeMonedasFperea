@@ -1,5 +1,7 @@
 package perea.conversor.principal;
 
+import perea.conversor.modelos.ConexionAPI;
+
 import java.util.Scanner;
 
 public class Main {
@@ -29,12 +31,13 @@ public class Main {
             }
 
             int opcion=lectura.nextInt();
-            /*if (opcion == 5) {
-                System.out.println("Saliendo del programa...");
-                break;
-            }*/
+
             switch (opcion){
                 case 1 -> {
+
+
+                    ConexionAPI conexion= new ConexionAPI();
+                    conexion.direccion("USD","ARS");
 
 
                 }
