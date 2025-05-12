@@ -22,28 +22,19 @@ public class Main {
 
             System.out.println("Selecciona:\n"+ menu);
 
-            if (!lectura.hasNextInt()) {
-                System.out.println("Entrada inválida, intenta nuevamente");
-                lectura.next();
-                continue;
-            }
+            int opcion=ValidaEntrada.leerEntero(lectura);
 
-            int opcion=lectura.nextInt();
+            //ValidaEntrada.rango(lectura,opcion);
 
+            if(opcion>=1 && opcion<6){
             switch (opcion){
                 case 1 -> {
                     System.out.println("Ingrese monto a convertir: ");
 
-                    if (!lectura.hasNextDouble()) {
-                        System.out.println("Error: Ingresa un número válido.");
-                        lectura.next();
-                        continue;
-                    }
+                    double cantidad = ValidaEntrada.leerDouble(lectura);
 
-                    double cantidad = lectura.nextDouble();
-
-                    ConexionAPI_Arg conexion= new ConexionAPI_Arg();
-                    double tasa=conexion.armaDireccion("USD","ARS");
+                    ConexionAPI_Arg conexion = new ConexionAPI_Arg();
+                    double tasa = conexion.obtenerTasa("USD","ARS");
 
                     //ConversorDeMonedas conversor= new ConversorDeMonedas();
 
@@ -52,7 +43,7 @@ public class Main {
                     System.out.println("Resultado "+tasa*cantidad);
 
                     System.out.println("Conversion invertida: ");
-                    double tasa2=conexion.invertir("ARS", "USD");
+                    double tasa2 = conexion.invertir("ARS", "USD");
                     System.out.println("Resultado "+tasa2*cantidad);
                     continue;
 
@@ -69,6 +60,10 @@ public class Main {
                 }
             }
             break;
+        }else{
+                System.out.println("Ingrese nuevamente:");
+                lectura.next();
+            }
         }
     }
 }
