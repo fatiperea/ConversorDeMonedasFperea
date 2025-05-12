@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 public class ConexionAPI {
     private String direccion="https://v6.exchangerate-api.com/v6/98940a4ca8e53fb94f327ebb/pair/";
 
-    public double direccion(String usd, String ars){
+    public double armaDireccion(String usd, String ars){
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -23,7 +23,7 @@ public class ConexionAPI {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
-            System.out.println(response.body());
+            //System.out.println(response.body());
 
             JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
 
@@ -32,6 +32,30 @@ public class ConexionAPI {
 
 
         }catch (Exception e) {
+            System.out.println("Error");
+            throw new RuntimeException(e);
+        }
+    }
+    public double invertir(String ars, String usd) {
+
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(direccion + "ARS" + "/" + "USD"))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+
+            //System.out.println(response.body());
+
+            JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
+
+            return jsonObject.get("conversion_rate").getAsDouble();
+
+
+        } catch (Exception e) {
             System.out.println("Error");
             throw new RuntimeException(e);
         }

@@ -46,7 +46,7 @@ public class Main {
                     double cantidad = lectura.nextDouble();
 
                     ConexionAPI conexion= new ConexionAPI();
-                    double tasa=conexion.direccion("USD","ARS");
+                    double tasa=conexion.armaDireccion("USD","ARS");
 
                     //ConversorDeMonedas conversor= new ConversorDeMonedas();
 
@@ -54,13 +54,20 @@ public class Main {
 
                     System.out.println("Resultado "+tasa*cantidad);
 
-                    break;
+                    System.out.println("Conversion invertida: ");
+                    double tasa2=conexion.invertir("ARS", "USD");
+                    System.out.println("Resultado "+tasa2*cantidad);
+                    continue;
+
+
+                    //break;
 
                 }
                 case 2 -> {
                 }
                 case 3 -> {}
                 case 4 -> {}
+                case 5 -> {}
                 case 6 -> {
                     System.out.println("Saliendo...");
                     break;
