@@ -1,6 +1,7 @@
 package perea.conversor.principal;
 
 import perea.conversor.modelos.ConexionAPI_Arg;
+import perea.conversor.modelos.ConexionAPI_Bra;
 
 import java.util.Scanner;
 
@@ -48,9 +49,26 @@ public class Main {
                     continue;
 
                     //break;
-
                 }
                 case 2 -> {
+                    System.out.println("Ingrese monto a convertir: ");
+
+                    double cantidad = ValidaEntrada.leerDouble(lectura);
+
+                    ConexionAPI_Bra conexion = new ConexionAPI_Bra();
+                    double tasa = conexion.obtenerTasa("USD", "BRL");
+
+                    //ConversorDeMonedas conversor= new ConversorDeMonedas();
+                    //conversor.convertir(tasa);
+
+                    System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos argentinos");
+
+                    System.out.println("\nConversión invertida: ");
+                    double tasa2 = conexion.invertir("BRL", "USD");
+                    System.out.println(cantidad+" pesos argentinos equivalen a "+tasa2*cantidad +" dólares");
+                    System.out.println("-----------------------------");
+                    continue;
+
                 }
                 case 3 -> {}
                 case 4 -> {}
