@@ -1,12 +1,13 @@
 package perea.conversor.principal;
 
 import perea.conversor.modelos.ConexionAPI;
+import perea.conversor.modelos.ConversorDeMonedas;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String apiKey="98940a4ca8e53fb94f327ebb";
+        //String apiKey="98940a4ca8e53fb94f327ebb";
 
         String menu= """
                 1-Dólar a Peso Argentino
@@ -34,10 +35,24 @@ public class Main {
 
             switch (opcion){
                 case 1 -> {
+                    System.out.println("Ingrese monto a convertir: ");
 
+                    if (!lectura.hasNextDouble()) {
+                        System.out.println("Error: Ingresa un número válido.");
+                        lectura.next();
+                        continue;
+                    }
+
+                    double cantidad = lectura.nextDouble();
 
                     ConexionAPI conexion= new ConexionAPI();
-                    conexion.direccion("USD","ARS");
+                    double tasa=conexion.direccion("USD","ARS");
+
+                    //ConversorDeMonedas conversor= new ConversorDeMonedas();
+
+                    //conversor.convertir(tasa);
+
+                    System.out.println("Resultado "+tasa*cantidad);
 
                     break;
 

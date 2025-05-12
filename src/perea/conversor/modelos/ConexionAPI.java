@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 public class ConexionAPI {
     private String direccion="https://v6.exchangerate-api.com/v6/98940a4ca8e53fb94f327ebb/pair/";
 
-    public void direccion(String usd, String ars){
+    public double direccion(String usd, String ars){
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -27,9 +27,7 @@ public class ConexionAPI {
 
             JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
 
-            ConversorDeMonedas conversor= new ConversorDeMonedas();
-
-            conversor.setTasaCambio(jsonObject.get("conversion_rate").getAsDouble());
+            return jsonObject.get("conversion_rate").getAsDouble();
 
 
 
