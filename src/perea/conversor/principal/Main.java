@@ -37,7 +37,6 @@ public class Main {
                     double tasa = conexion.obtenerTasa("USD","ARS");
 
                     //ConversorDeMonedas conversor= new ConversorDeMonedas();
-
                     //conversor.convertir(tasa);
 
                     System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos argentinos");
@@ -66,5 +65,6 @@ public class Main {
                 lectura.next();
             }
         }
+        lectura.close();
     }
 }
