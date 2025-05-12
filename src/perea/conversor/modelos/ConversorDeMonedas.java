@@ -29,4 +29,8 @@ public class ConversorDeMonedas {
     public void setTasaCambio(Double tasaCambio) {
         this.tasaCambio = tasaCambio;
     }
+
+    public double convertir(double cantidad){
+        return (cantidad * this.getTasaCambio());
+    }
 }
