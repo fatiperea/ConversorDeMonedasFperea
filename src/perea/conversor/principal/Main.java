@@ -39,6 +39,7 @@ public class Main {
                     ConexionAPI conexion= new ConexionAPI();
                     conexion.direccion("USD","ARS");
 
+                    break;
 
                 }
                 case 2 -> {
