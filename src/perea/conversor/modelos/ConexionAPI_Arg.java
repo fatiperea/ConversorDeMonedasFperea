@@ -8,7 +8,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ConexionAPI {
+public class ConexionAPI_Arg {
+
     private String direccion="https://v6.exchangerate-api.com/v6/98940a4ca8e53fb94f327ebb/pair/";
 
     public double armaDireccion(String usd, String ars){

@@ -1,7 +1,6 @@
 package perea.conversor.principal;
 
-import perea.conversor.modelos.ConexionAPI;
-import perea.conversor.modelos.ConversorDeMonedas;
+import perea.conversor.modelos.ConexionAPI_Arg;
 
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class Main {
                 1-Dólar a Peso Argentino
                 2-Dólar a Real Brasilero
                 3-Dólar a Peso Colombiano 
-                4-Peso Colombiano a Dólar
+                4-Dólar a Boliviano     
                 5-Salir""";
 
         System.out.println("Soy la API Conversor de monedas y te doy la bienvenida");
@@ -21,7 +20,7 @@ public class Main {
 
         while (true){
 
-            System.out.println("Selecciona: \\n"+ menu);
+            System.out.println("Selecciona:\n"+ menu);
 
             if (!lectura.hasNextInt()) {
                 System.out.println("Entrada inválida, intenta nuevamente");
@@ -43,7 +42,7 @@ public class Main {
 
                     double cantidad = lectura.nextDouble();
 
-                    ConexionAPI conexion= new ConexionAPI();
+                    ConexionAPI_Arg conexion= new ConexionAPI_Arg();
                     double tasa=conexion.armaDireccion("USD","ARS");
 
                     //ConversorDeMonedas conversor= new ConversorDeMonedas();
