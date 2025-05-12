@@ -40,11 +40,12 @@ public class Main {
 
                     //conversor.convertir(tasa);
 
-                    System.out.println("Resultado "+tasa*cantidad);
+                    System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos argentinos");
 
-                    System.out.println("Conversion invertida: ");
+                    System.out.println("\nConversión invertida: ");
                     double tasa2 = conexion.invertir("ARS", "USD");
-                    System.out.println("Resultado "+tasa2*cantidad);
+                    System.out.println(cantidad+" pesos argentinos equivalen a "+tasa2*cantidad +" dólares");
+                    System.out.println("-----------------------------");
                     continue;
 
                     //break;
