@@ -57,12 +57,24 @@ public class ConexionAPI_Arg {
 
             //System.out.println(response.body());
 
+            if (response.body() == null || response.body().isEmpty()) {
+                throw new RuntimeException("Error: respuesta vacía.");
+            }
+
             JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
+
+            if (!jsonObject.has("conversion_rate")) {
+                throw new RuntimeException("Error: No se encontró la tasa de conversión");
+            }
+
+            if (!jsonObject.has("conversion_rate")) {
+                throw new RuntimeException("Error: No se encontró la tasa de conversión");
+            }
 
             return jsonObject.get("conversion_rate").getAsDouble();
 
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println("Error al obtener tasa de conversión "+e.getMessage());
             throw new RuntimeException(e);
         }
     }
