@@ -67,10 +67,6 @@ public class ConexionAPI_Arg {
                 throw new RuntimeException("Error: No se encontró la tasa de conversión");
             }
 
-            if (!jsonObject.has("conversion_rate")) {
-                throw new RuntimeException("Error: No se encontró la tasa de conversión");
-            }
-
             return jsonObject.get("conversion_rate").getAsDouble();
 
         } catch (Exception e) {

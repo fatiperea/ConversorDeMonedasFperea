@@ -24,14 +24,22 @@ public class ConexionAPI_Bra {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
+            if (response.body() == null || response.body().isEmpty()) {
+                throw new RuntimeException("Error: respuesta vacía.");
+            }
+
             //System.out.println(response.body());
 
             JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
 
+            if (!jsonObject.has("conversion_rate")) {
+                throw new RuntimeException("Error: No se encontró la tasa de conversión");
+            }
+
             return jsonObject.get("conversion_rate").getAsDouble();
 
         }catch (Exception e) {
-            System.out.println("Error");
+            System.out.println("Error al obtener tasa de conversión "+e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -49,12 +57,20 @@ public class ConexionAPI_Bra {
 
             //System.out.println(response.body());
 
+            if (response.body() == null || response.body().isEmpty()) {
+                throw new RuntimeException("Error: respuesta vacía.");
+            }
+
             JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
+
+            if (!jsonObject.has("conversion_rate")) {
+                throw new RuntimeException("Error: No se encontró la tasa de conversión");
+            }
 
             return jsonObject.get("conversion_rate").getAsDouble();
 
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println("Error al obtener tasa de conversión "+e.getMessage());
             throw new RuntimeException(e);
         }
     }
