@@ -1,6 +1,7 @@
 package perea.conversor.principal;
 
 import perea.conversor.modelos.ConexionAPI_Arg;
+import perea.conversor.modelos.ConexionAPI_Bol;
 import perea.conversor.modelos.ConexionAPI_Bra;
 import perea.conversor.modelos.ConexionAPI_Col;
 
@@ -91,7 +92,26 @@ public class Main {
                     continue;
 
                 }
-                case 4 -> {}
+                case 4 -> {
+                    System.out.println("Ingrese monto a convertir: ");
+
+                    double cantidad = ValidaEntrada.leerDouble(lectura);
+
+                    ConexionAPI_Bol conexion = new ConexionAPI_Bol();
+                    double tasa = conexion.obtenerTasa("USD","BOB");
+
+                    //ConversorDeMonedas conversor= new ConversorDeMonedas();
+                    //conversor.convertir(tasa);
+
+                    System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" bolivianos");
+
+                    System.out.println("\nConversión invertida: ");
+                    double tasa2 = conexion.invertir("BOB", "USD");
+                    System.out.println(cantidad+" bolivianos equivalen a "+tasa2*cantidad +" dólares");
+                    System.out.println("-----------------------------");
+                    continue;
+
+                }
                 case 5 -> {
                     System.out.println("Saliendo...");
                     break;

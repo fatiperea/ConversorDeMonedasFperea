@@ -12,7 +12,7 @@ public class ConexionAPI_Bol {
 
     private String direccion="https://v6.exchangerate-api.com/v6/98940a4ca8e53fb94f327ebb/pair/";
 
-    public double obtenerTasa(String bob, String ars){
+    public double obtenerTasa(String usd, String bob){
 
         try {
             HttpClient client = HttpClient.newHttpClient();
