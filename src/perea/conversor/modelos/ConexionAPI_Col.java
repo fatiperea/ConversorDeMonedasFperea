@@ -43,7 +43,7 @@ public class ConexionAPI_Col {
             throw new RuntimeException(e);
         }
     }
-    public double invertir(String ars, String usd) {
+    public double invertir(String cop, String usd) {
 
         try {
             HttpClient client = HttpClient.newHttpClient();
