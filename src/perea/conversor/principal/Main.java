@@ -2,6 +2,7 @@ package perea.conversor.principal;
 
 import perea.conversor.modelos.ConexionAPI_Arg;
 import perea.conversor.modelos.ConexionAPI_Bra;
+import perea.conversor.modelos.ConexionAPI_Col;
 
 import java.util.Scanner;
 
@@ -70,7 +71,26 @@ public class Main {
                     continue;
 
                 }
-                case 3 -> {}
+                case 3 -> {
+                    System.out.println("Ingrese monto a convertir: ");
+
+                    double cantidad = ValidaEntrada.leerDouble(lectura);
+
+                    ConexionAPI_Col conexion = new ConexionAPI_Col();
+                    double tasa = conexion.obtenerTasa("USD","COP");
+
+                    //ConversorDeMonedas conversor= new ConversorDeMonedas();
+                    //conversor.convertir(tasa);
+
+                    System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos colombianos");
+
+                    System.out.println("\nConversión invertida: ");
+                    double tasa2 = conexion.invertir("COP", "USD");
+                    System.out.println(cantidad+" pesos colombianos equivalen a "+tasa2*cantidad +" dólares");
+                    System.out.println("-----------------------------");
+                    continue;
+
+                }
                 case 4 -> {}
                 case 5 -> {
                     System.out.println("Saliendo...");
