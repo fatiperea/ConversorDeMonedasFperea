@@ -21,7 +21,9 @@ public class Main {
                 8-Boliviano a Dólar
                 9-Salir""";
 
+        System.out.println("*********************************************************");
         System.out.println("Soy la API Conversor de monedas y te doy la bienvenida");
+        System.out.println("*********************************************************");
 
         Scanner lectura= new Scanner(System.in);
 
