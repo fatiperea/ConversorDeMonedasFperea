@@ -105,17 +105,56 @@ public class Main {
                         double cantidad = ValidaEntrada.leerDouble(lectura);
 
                         ConexionAPI_Arg conexion = new ConexionAPI_Arg();
-                        //double tasa = conexion.obtenerTasa("USD","ARS");
 
-                        //System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos argentinos");
+                        double tasa = conexion.invertir("ARS", "USD");
+                        System.out.println(cantidad+" pesos argentinos equivalen a "+tasa*cantidad +" dólares");
 
-                        //System.out.println("\nConversión invertida: ");
-                        double tasa2 = conexion.invertir("ARS", "USD");
-                        System.out.println(cantidad+" pesos argentinos equivalen a "+tasa2*cantidad +" dólares");
+                        System.out.println("\nConversión invertida: ");
+                        double tasa2 = conexion.obtenerTasa("USD","ARS");
+
+                        System.out.println(cantidad+" dólares equivalen a "+tasa2*cantidad +" pesos argentinos");
+
                         System.out.println("-----------------------------");
                         continue;
                     }
-                    case 8 -> {
+                    case 6 -> {
+                        System.out.println("Ingrese monto a convertir: ");
+
+                        double cantidad = ValidaEntrada.leerDouble(lectura);
+
+                        ConexionAPI_Bra conexion = new ConexionAPI_Bra();
+
+                        double tasa = conexion.invertir("BRL", "USD");
+                        System.out.println(cantidad+" reales equivalen a "+tasa*cantidad +" dólares");
+
+                        System.out.println("\nConversión invertida: ");
+                        double tasa2 = conexion.obtenerTasa("USD", "BRL");
+
+                        System.out.println(cantidad+" dólares equivalen a "+tasa2*cantidad +" reales");
+
+                        System.out.println("-----------------------------");
+                        continue;
+                    }
+                    case 7 -> {
+                        System.out.println("Ingrese monto a convertir: ");
+
+                        double cantidad = ValidaEntrada.leerDouble(lectura);
+
+                        ConexionAPI_Col conexion = new ConexionAPI_Col();
+
+                        double tasa = conexion.invertir("COP", "USD");
+                        System.out.println(cantidad+" pesos colombianos equivalen a "+tasa*cantidad +" dólares");
+
+                        System.out.println("\nConversión invertida: ");
+                        double tasa2 = conexion.obtenerTasa("USD","COP");
+
+                        System.out.println(cantidad+" dólares equivalen a "+tasa2*cantidad +" pesos colombianos");
+
+                        System.out.println("-----------------------------");
+                        continue;
+
+                    }
+                        case 8 -> {
                         System.out.println("Saliendo...");
                     }
                 }
