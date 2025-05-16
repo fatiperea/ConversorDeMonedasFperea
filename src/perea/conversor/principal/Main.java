@@ -7,7 +7,6 @@ import perea.conversor.modelos.ConexionAPI_Col;
 
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) {
 
@@ -42,12 +41,12 @@ public class Main {
                         ConexionAPI_Arg conexion = new ConexionAPI_Arg();
                         double tasa = conexion.obtenerTasa("USD","ARS");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos argentinos",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f pesos argentinos%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("ARS", "USD");
 
-                        System.out.println(String.format("%.2f pesos argentinos equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f pesos argentinos equivalen a %.2f dólares%n",cantidad,tasa2*cantidad);
                         System.out.println("-------------------------------------------------------------");
                         continue;
                     }
@@ -59,11 +58,11 @@ public class Main {
                         ConexionAPI_Bra conexion = new ConexionAPI_Bra();
                         double tasa = conexion.obtenerTasa("USD", "BRL");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f reales",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f reales%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("BRL", "USD");
-                        System.out.println(String.format("%.2f reales equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f reales equivalen a %.2f dólares%n",cantidad,tasa2*cantidad);
 
                         System.out.println("-------------------------------------------------------------");
                         continue;
@@ -76,11 +75,11 @@ public class Main {
                         ConexionAPI_Col conexion = new ConexionAPI_Col();
                         double tasa = conexion.obtenerTasa("USD","COP");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos colombianos",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f pesos colombianos%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("COP", "USD");
-                        System.out.println(String.format("%.2f pesos colombianos equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f pesos colombianos equivalen a %.2f dólares%n",cantidad,tasa2*cantidad);
                         System.out.println("-------------------------------------------------------------");
                         continue;
                     }
@@ -92,11 +91,11 @@ public class Main {
                         ConexionAPI_Bol conexion = new ConexionAPI_Bol();
                         double tasa = conexion.obtenerTasa("USD","BOB");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f bolivianos",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f bolivianos%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("BOB", "USD");
-                        System.out.println(String.format("%.2f bolivianos equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f bolivianos equivalen a %.2f dólares%n",cantidad,tasa2*cantidad);
                         System.out.println("-------------------------------------------------------------");
                         continue;
                     }
@@ -108,12 +107,12 @@ public class Main {
                         ConexionAPI_Arg conexion = new ConexionAPI_Arg();
 
                         double tasa = conexion.invertir("ARS", "USD");
-                        System.out.println(String.format("%.2f pesos argentinos equivalen a %.2f dólares",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f pesos argentinos equivalen a %.2f dólares%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.obtenerTasa("USD","ARS");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos argentinos",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f pesos argentinos%n",cantidad,tasa2*cantidad);
 
                         System.out.println("-------------------------------------------------------------");
                         continue;
@@ -127,12 +126,12 @@ public class Main {
 
                         double tasa = conexion.invertir("BRL", "USD");
                         System.out.println(cantidad+" reales equivalen a "+tasa*cantidad +" dólares");
-                        System.out.println(String.format("%.2f reales equivalen a %.2f dólares",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f reales equivalen a %.2f dólares%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.obtenerTasa("USD", "BRL");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f reales",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f reales%n",cantidad,tasa2*cantidad);
 
                         System.out.println("-------------------------------------------------------------");
                         continue;
@@ -146,12 +145,12 @@ public class Main {
 
                         double tasa = conexion.invertir("COP", "USD");
                         System.out.println(cantidad+" pesos colombianos equivalen a "+tasa*cantidad +" dólares");
-                        System.out.println(String.format("%.2f pesos colombianos equivalen a %.2f dólares",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f pesos colombianos equivalen a %.2f dólares%n",cantidad,tasa*cantidad);
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.obtenerTasa("USD","COP");
 
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos colombianos",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f pesos colombianos%n",cantidad,tasa2*cantidad);
 
                         System.out.println("-------------------------------------------------------------");
                         continue;
@@ -164,19 +163,17 @@ public class Main {
                         ConexionAPI_Bol conexion = new ConexionAPI_Bol();
                         double tasa = conexion.invertir("BOB", "USD");
                         System.out.println(cantidad+" bolivianos equivalen a "+tasa*cantidad +" dólares");
-                        System.out.println(String.format("%.2f bolivianos equivalen a %.2f dólares",cantidad,tasa*cantidad));
+                        System.out.printf("%.2f bolivianos equivalen a %.2f dólares%n",cantidad,tasa*cantidad);
 
                         double tasa2 = conexion.obtenerTasa("USD","BOB");
 
                         System.out.println("\nConversión invertida: ");
-                        System.out.println(String.format("%.2f dólares equivalen a %.2f bolivianos",cantidad,tasa2*cantidad));
+                        System.out.printf("%.2f dólares equivalen a %.2f bolivianos%n",cantidad,tasa2*cantidad);
 
                         System.out.println("-------------------------------------------------------------");
                         continue;
                     }
-                        case 9 -> {
-                        System.out.println("Saliendo...");
-                    }
+                        case 9 -> System.out.println("Saliendo...");
                 }
                 break;
             }else{
