@@ -7,6 +7,7 @@ import perea.conversor.modelos.ConexionAPI_Col;
 
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
 
@@ -18,7 +19,8 @@ public class Main {
                 5-Peso Argentino a Dólar
                 6-Real Brasilero a Dólar
                 7-Peso Colombiano a Dólar
-                8-Salir""";
+                8-Boliviano a Dólar
+                9-Salir""";
 
         System.out.println("Soy la API Conversor de monedas y te doy la bienvenida");
 
@@ -30,7 +32,7 @@ public class Main {
 
             int opcion=ValidaEntrada.leerEntero(lectura);
 
-            if(opcion >= 1 && opcion <= 8){
+            if(opcion >= 1 && opcion <= 9){
                 switch (opcion){
                     case 1 -> {
                         System.out.println("Ingrese monto a convertir: ");
@@ -40,12 +42,13 @@ public class Main {
                         ConexionAPI_Arg conexion = new ConexionAPI_Arg();
                         double tasa = conexion.obtenerTasa("USD","ARS");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos argentinos");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos argentinos",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("ARS", "USD");
-                        System.out.println(cantidad+" pesos argentinos equivalen a "+tasa2*cantidad +" dólares");
-                        System.out.println("-----------------------------");
+
+                        System.out.println(String.format("%.2f pesos argentinos equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.println("-------------------------------------------------------------");
                         continue;
                     }
                     case 2 -> {
@@ -56,14 +59,14 @@ public class Main {
                         ConexionAPI_Bra conexion = new ConexionAPI_Bra();
                         double tasa = conexion.obtenerTasa("USD", "BRL");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" reales");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f reales",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("BRL", "USD");
-                        System.out.println(cantidad+" reales equivalen a "+tasa2*cantidad +" dólares");
-                        System.out.println("-----------------------------");
-                        continue;
+                        System.out.println(String.format("%.2f reales equivalen a %.2f dólares",cantidad,tasa2*cantidad));
 
+                        System.out.println("-------------------------------------------------------------");
+                        continue;
                     }
                     case 3 -> {
                         System.out.println("Ingrese monto a convertir: ");
@@ -73,14 +76,13 @@ public class Main {
                         ConexionAPI_Col conexion = new ConexionAPI_Col();
                         double tasa = conexion.obtenerTasa("USD","COP");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" pesos colombianos");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos colombianos",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("COP", "USD");
-                        System.out.println(cantidad+" pesos colombianos equivalen a "+tasa2*cantidad +" dólares");
-                        System.out.println("-----------------------------");
+                        System.out.println(String.format("%.2f pesos colombianos equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.println("-------------------------------------------------------------");
                         continue;
-
                     }
                     case 4 -> {
                         System.out.println("Ingrese monto a convertir: ");
@@ -90,14 +92,13 @@ public class Main {
                         ConexionAPI_Bol conexion = new ConexionAPI_Bol();
                         double tasa = conexion.obtenerTasa("USD","BOB");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa*cantidad +" bolivianos");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f bolivianos",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.invertir("BOB", "USD");
-                        System.out.println(cantidad+" bolivianos equivalen a "+tasa2*cantidad +" dólares");
-                        System.out.println("-----------------------------");
+                        System.out.println(String.format("%.2f bolivianos equivalen a %.2f dólares",cantidad,tasa2*cantidad));
+                        System.out.println("-------------------------------------------------------------");
                         continue;
-
                     }
                     case 5 -> {
                         System.out.println("Ingrese monto a convertir: ");
@@ -107,14 +108,14 @@ public class Main {
                         ConexionAPI_Arg conexion = new ConexionAPI_Arg();
 
                         double tasa = conexion.invertir("ARS", "USD");
-                        System.out.println(cantidad+" pesos argentinos equivalen a "+tasa*cantidad +" dólares");
+                        System.out.println(String.format("%.2f pesos argentinos equivalen a %.2f dólares",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.obtenerTasa("USD","ARS");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa2*cantidad +" pesos argentinos");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos argentinos",cantidad,tasa2*cantidad));
 
-                        System.out.println("-----------------------------");
+                        System.out.println("-------------------------------------------------------------");
                         continue;
                     }
                     case 6 -> {
@@ -126,13 +127,14 @@ public class Main {
 
                         double tasa = conexion.invertir("BRL", "USD");
                         System.out.println(cantidad+" reales equivalen a "+tasa*cantidad +" dólares");
+                        System.out.println(String.format("%.2f reales equivalen a %.2f dólares",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.obtenerTasa("USD", "BRL");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa2*cantidad +" reales");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f reales",cantidad,tasa2*cantidad));
 
-                        System.out.println("-----------------------------");
+                        System.out.println("-------------------------------------------------------------");
                         continue;
                     }
                     case 7 -> {
@@ -144,17 +146,35 @@ public class Main {
 
                         double tasa = conexion.invertir("COP", "USD");
                         System.out.println(cantidad+" pesos colombianos equivalen a "+tasa*cantidad +" dólares");
+                        System.out.println(String.format("%.2f pesos colombianos equivalen a %.2f dólares",cantidad,tasa*cantidad));
 
                         System.out.println("\nConversión invertida: ");
                         double tasa2 = conexion.obtenerTasa("USD","COP");
 
-                        System.out.println(cantidad+" dólares equivalen a "+tasa2*cantidad +" pesos colombianos");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f pesos colombianos",cantidad,tasa2*cantidad));
 
-                        System.out.println("-----------------------------");
+                        System.out.println("-------------------------------------------------------------");
                         continue;
-
                     }
-                        case 8 -> {
+                    case 8 -> {
+                        System.out.println("Ingrese monto a convertir: ");
+
+                        double cantidad = ValidaEntrada.leerDouble(lectura);
+
+                        ConexionAPI_Bol conexion = new ConexionAPI_Bol();
+                        double tasa = conexion.invertir("BOB", "USD");
+                        System.out.println(cantidad+" bolivianos equivalen a "+tasa*cantidad +" dólares");
+                        System.out.println(String.format("%.2f bolivianos equivalen a %.2f dólares",cantidad,tasa*cantidad));
+
+                        double tasa2 = conexion.obtenerTasa("USD","BOB");
+
+                        System.out.println("\nConversión invertida: ");
+                        System.out.println(String.format("%.2f dólares equivalen a %.2f bolivianos",cantidad,tasa2*cantidad));
+
+                        System.out.println("-------------------------------------------------------------");
+                        continue;
+                    }
+                        case 9 -> {
                         System.out.println("Saliendo...");
                     }
                 }
