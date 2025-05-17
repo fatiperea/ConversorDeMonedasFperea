@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 
 public class ConexionAPI_Col {
 
-    private String direccion="https://v6.exchangerate-api.com/v6/98940a4ca8e53fb94f327ebb/pair/";
+    private String direccion="https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/";
 
     public double obtenerTasa(String usd, String cop){
 
